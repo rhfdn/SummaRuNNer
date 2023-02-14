@@ -12,8 +12,9 @@ def load_json_as_pandas_df(fname):
         obj = json.loads(data[i])
         text.append(obj["doc"])
         summaries.append(obj["summaries"])
-        labels.append(obj["labels"])
-    return pd.DataFrame(list(zip(text, summaries, labels)), columns=["text", "summaries", "lables"])
+        tmp_labels = obj["labels"].split('\n')
+        labels.append([int(tmp_labels[i]) for i in range(len(tmp_labels))])
+    return pd.DataFrame(list(zip(text, summaries, labels)), columns=["text", "summaries", "labels"])
 
 # Load all json file
 ref_train = load_json_as_pandas_df("./data/ref/train.json")
