@@ -7,7 +7,7 @@ git clone https://github.com/Baragouine/SummaRuNNer.git
 
 ## Create environnement
 ```bash
-conda create --name SummaRuNNer python=3.11
+conda create --name SummaRuNNer python=3.9
 ```
 
 ## Activate environnement
@@ -19,4 +19,3 @@ conda activate SummaRuNNer
 ```bash
 pip install -r requirements.txt
 ```
-
