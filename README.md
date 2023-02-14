@@ -28,3 +28,8 @@ Run the python script: `convert_ref_data_to_raw_data.py`:
 python3 ./convert_ref_data_to_raw_data.py
 ```
 
+## Compute own labels
+```bash
+python3 ./compute_own_labels_from_raw_data.py
+```
+
