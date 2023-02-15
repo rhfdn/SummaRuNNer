@@ -36,9 +36,9 @@ def compute_own_labels_df(df):
         labels.append(compute_own_labels_text(df["text"][i], df["summaries"][i]))
     return pd.Series(labels)
 
-raw_train["own_label"] = compute_own_labels_df(raw_train)
-raw_val["own_label"] = compute_own_labels_df(raw_val)
-raw_test["own_label"] = compute_own_labels_df(raw_test)
+raw_train["own_labels"] = compute_own_labels_df(raw_train)
+raw_val["own_labels"] = compute_own_labels_df(raw_val)
+raw_test["own_labels"] = compute_own_labels_df(raw_test)
 
 raw_train.to_json("./data/train.json")
 raw_val.to_json("./data/val.json")
