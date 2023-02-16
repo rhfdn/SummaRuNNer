@@ -5,13 +5,13 @@ import numpy as np
 
 # Manage embedding and conversion between word and index
 class GloveMgr():
-    def __init__(self, fname):
+    def __init__(self, fname, vocab_size=150000):
         vocab,embeddings = [],[]
 
         with open(fname,'rt') as fi:
             full_content = fi.read().strip().split('\n')
 
-        for i in range(len(full_content)):
+        for i in range(min(vocab_size, len(full_content))):
             i_word = full_content[i].split(' ')[0]
             i_embeddings = [float(val) for val in full_content[i].split(' ')[1:]]
             vocab.append(i_word)
