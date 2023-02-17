@@ -45,5 +45,5 @@ class GloveMgr():
         return self.vocab_npa[1]
 
     # Get embedding
-    def getEmbedding(self):
+    def getEmbeddings(self):
         return self.embs_npa

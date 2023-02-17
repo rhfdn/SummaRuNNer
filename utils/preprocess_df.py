@@ -5,4 +5,6 @@ def preprocess_df(df, glovemgr, doc_column_name="text", labels_column_name="own_
     result = []
     for idx in df.index:
         result.append({"doc" : preprocess_text(df[doc_column_name][idx], glovemgr=glovemgr, is_sep_n=is_sep_n, remove_stop_word=remove_stop_word, stemming=stemming, trunc=trunc, padding=padding), "labels" : df[labels_column_name][idx]})
+        if len(result[-1]["doc"]) != len(result[-1]["labels"]):
+            print("erreur features/targets")
     return result

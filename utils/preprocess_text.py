@@ -45,6 +45,10 @@ def preprocess_text(text, glovemgr, is_sep_n = True, remove_stop_word = True, st
     # word2id
     result = [[glovemgr.w2i(word) for word in line] for line in result]
 
+    for line in result:
+        if len(line) == 0:
+            print("line 0")
+
     # padding
     if padding >= 0:
         result = [line + [0 for i in range(max(0, padding - len(line)))] for line in result]
