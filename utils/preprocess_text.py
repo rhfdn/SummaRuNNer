@@ -11,7 +11,7 @@ import nltk
 # nltk.download()
 
 # Preprocess a text
-def preprocess_text(text, glovemgr, is_sep_n = True, remove_stop_word = True, stemming=True, trunc=-1, padding=-1):
+def preprocess_text(text, glovemgr, is_sep_n = True, remove_stop_word = True, stemming=True, trunc_sent=-1, padding_sent=-1):
     # lower
     result = text.lower()
 
@@ -39,14 +39,14 @@ def preprocess_text(text, glovemgr, is_sep_n = True, remove_stop_word = True, st
         result = [[porter.stem(word) for word in line] for line in result]
 
     # trunc
-    if trunc >= 0:
-        result = [line if len(line) <= trunc else line[:trunc] for line in result]
+    if trunc_sent >= 0:
+        result = [line if len(line) <= trunc_sent else line[:trunc_sent] for line in result]
 
     # word2id
     result = [[glovemgr.w2i(word) for word in line] for line in result]
 
     # padding
-    if padding >= 0:
-        result = [line + [0 for i in range(max(0, padding - len(line)))] for line in result]
+    if padding_sent >= 0:
+        result = [line + [0 for i in range(max(0, padding_sent - len(line)))] for line in result]
 
     return result
