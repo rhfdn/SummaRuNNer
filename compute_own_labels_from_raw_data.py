@@ -2,6 +2,9 @@ import pandas as pd
 import json
 import os
 from rouge_score import rouge_scorer
+from nltk.tokenize import LineTokenizer, sent_tokenize, word_tokenize
+from nltk.corpus import stopwords
+from nltk.stem.porter import PorterStemmer
 
 scorer = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
 
@@ -11,9 +14,15 @@ raw_val = pd.read_json("./data/raw/val.json")
 raw_test = pd.read_json("./data/raw/test.json")
 
 # Compute own label for entry (text)
-def compute_own_labels_text(text, summary, sep='\n'):
+def compute_own_labels_text(text, summary, is_sep_n = True):
     labels = []
-    s = text.split(sep)
+    s = []
+    # tokenize sentence
+    if is_sep_n:
+        nltk_line_tokenizer = LineTokenizer()
+        s = nltk_line_tokenizer.tokenize(text)
+    else:
+        s = sent_tokenize(text)
     if (len(s) > 0):
         a = ""
         score = scorer.score(a, summary)
