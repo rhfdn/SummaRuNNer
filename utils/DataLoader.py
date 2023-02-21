@@ -35,4 +35,4 @@ class DataLoader():
         return [self.dataset[i] for i in idxs]
 
     def __len__(self):
-        return len(self.lidx) / self.batch_size
+        return int(len(self.lidx) / self.batch_size)
