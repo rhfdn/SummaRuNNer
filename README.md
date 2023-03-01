@@ -22,7 +22,7 @@ pip install -r requirements.txt
 
 ## Convert initial dataset to valid pandas json
 Download the [initial dataset](https://drive.google.com/file/d/1JgsboIAs__r6XfCbkDWgmberXJw8FBWE/view?usp=sharing).  
-Copy train.json, val.json and test.json to ./data/ref and other files to ./data 
+Copy train.json, val.json and test.json to `./data/ref` . 
 Run the python script: `convert_ref_data_to_raw_data.py`:
 ```bash
 python3 ./convert_ref_data_to_raw_data.py
