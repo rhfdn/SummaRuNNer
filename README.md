@@ -55,7 +55,7 @@ rougeL = 0.198735038961782+/-0.0005179696499819547
  * Test Rouge L: 0.199
 
 ### Batch 32
- * Training time: 21712 s (361,87 min ou 6.03 h)  
+ * Training time: 21712 s (361.87 min ou 6.03 h)  
  * Test Accuracy: 0.795  
  * Test Rouge 1: 0.296  
  * Test Rouge 2: 0.151  
