@@ -39,7 +39,7 @@ rouge1 = 0.2952507457561455+/-0.0006882599953940415
 rouge2 = 0.15091452229881022+/-0.000400575299884331
 rougeL = 0.198735038961782+/-0.0005179696499819547
 
-## Batch influences
+## Batch size influences on RNN_RNN
 ### Batch 8
  * Training time: 28467 s (474.45 min ou 7.9 h)  
  * Test Accuracy: 0.795   
