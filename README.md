@@ -89,3 +89,17 @@ rougeL = 0.198735038961782+/-0.0005179696499819547
  * Test Rouge 2: 0.14970980870769843+/-0.001832928901577084
  * Test Rouge L: 0.19678195335760365+/-0.0020166919175840328
 
+## COMPLEX_CNN_RNN measures (max_pool)
+ * Training time: 8554.601396083832
+ * Test Accuracy: 0.795
+ * Test Rouge 1: 0.292
+ * Test Rouge 2: 0.15
+ * Test Rouge L: 0.197
+
+## SIMPLE_CNN_RNN without text content (only position)
+ accuracy=0.794, rouge1=0.286, rouge2=0.146, rougeL=0.193
+
+## SIMPLE_CNN_RNN without position (only text content)
+accuracy=0.795, rouge1=0.292, rouge2=0.15, rougeL=0.197
+
+
