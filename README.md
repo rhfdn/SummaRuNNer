@@ -102,4 +102,19 @@ rougeL = 0.198735038961782+/-0.0005179696499819547
 ## SIMPLE_CNN_RNN without position (only text content)
 accuracy=0.795, rouge1=0.292, rouge2=0.15, rougeL=0.197
 
+## SIMPLE_CNN_RNN absolute position only
+accuracy=0.794, rouge1=0.286, rouge2=0.145, rougeL=0.192
+
+## SIMPLE_CNN_RNN relative position only
+accuracy=0.794, rouge1=0.286, rouge2=0.145, rougeL=0.193
+
+## SIMPLE_CNN_RNN without position and content
+accuracy=0.795, rouge1=0.294, rouge2=0.151, rougeL=0.199
+
+## SIMPLE_CNN_RNN without position and salience
+accuracy=0.796, rouge1=0.292, rouge2=0.15, rougeL=0.197
+
+## SIMPLE_CNN_RNN without position and novelty
+accuracy=0.796, rouge1=0.292, rouge2=0.15, rougeL=0.197
+
 
