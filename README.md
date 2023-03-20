@@ -117,4 +117,12 @@ accuracy=0.796, rouge1=0.292, rouge2=0.15, rougeL=0.197
 ## SIMPLE_CNN_RNN without position and novelty
 accuracy=0.796, rouge1=0.292, rouge2=0.15, rougeL=0.197
 
+## SIMPLE_CNN_RNN without position, content and salience (novelty only)
+accuracy=0.796, rouge1=0.294, rouge2=0.151, rougeL=0.198
+
+## SIMPLE_CNN_RNN without position, content and novelty (salience only)
+accuracy=0.795, rouge1=0.291, rouge2=0.15, rougeL=0.197
+
+## SIMPLE_CNN_RNN without position, salience and novelty (content only)
+accuracy=0.796, rouge1=0.293, rouge2=0.151, rougeL=0.198
 
