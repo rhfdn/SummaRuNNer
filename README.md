@@ -34,6 +34,9 @@ python3 ./convert_ref_data_to_raw_data.py
 python3 ./compute_own_labels_from_raw_data.py
 ```
 
+## Embeddings
+For training you must use glove 100 embeddings, they must have the following path: `data/glove.6B/glove.6B.100d.txt`
+
 ## Training
 Run `train_RNN_RNN.ipynb` to train the paper model.  
 Run `train_SIMPLE_CNN_RNN.ipynb` to train the model whose first RNN is replaced by a single-layer CNN. 
