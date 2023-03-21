@@ -48,7 +48,8 @@ The other notebooks are used to train SIMPLE_CNN_RNN that have been ablated to s
  * Run `train_SIMPLE_CNN_RNN_rel_pos_only.ipynb` to train a SIMPLE_CNN_RNN that uses only the relative position to predict.
  * ...  
   
-To find out what these notebooks are for, just look at the file name.
+To find out what these notebooks are for, just look at the file name.  
+The `pt` files are located in `./checkpoints`, each training result is stored in a different sub directory.  
 
 ## Result
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L | Accuracy |  
@@ -66,7 +67,7 @@ To find out what these notebooks are for, just look at the file name.
 |SIMPLE_CNN_RNN without positions and content|29.4|15.1|19.9|0.795|  
 |SIMPLE_CNN_RNN without positions and salience|29.2|15.0|19.7|0.796|  
 |SIMPLE_CNN_RNN without position and novelty|29.2|15.0|19.7|0.796|  
-|SIMPLE_CNN_RNN without position, content and salience (novelty only)|19.4|15.1|19.8|0.796|  
+|SIMPLE_CNN_RNN without position, content and salience (novelty only)|29.4|15.1|19.8|0.796|  
 |SIMPLE_CNN_RNN without position, content and novelty (salience only)|29.1|15.0|19.7|0.795|  
 |SIMPLE_CNN_RNN without position, salience and novelty (content only)|29.3|15.1|19.8|0.796|
 
