@@ -1,4 +1,5 @@
 # SummaRuNNer
+paper: [SummaRuNNer](https://arxiv.org/pdf/1611.04230.pdf)
 
 ## Clone project
 ```bash
@@ -21,7 +22,7 @@ pip install -r requirements.txt
 ```
 
 ## Convert initial dataset to valid pandas json
-Download the [initial dataset](https://drive.google.com/file/d/1JgsboIAs__r6XfCbkDWgmberXJw8FBWE/view?usp=sharing).  
+Download the [initial dataset](https://drive.google.com/file/d/1JgsboIAs__r6XfCbkDWgmberXJw8FBWE/view?usp=sharing) (DailyMail).  
 Copy train.json, val.json and test.json to `./data/ref` .  
 Run the python script: `convert_ref_data_to_raw_data.py`:
 ```bash
@@ -33,96 +34,45 @@ python3 ./convert_ref_data_to_raw_data.py
 python3 ./compute_own_labels_from_raw_data.py
 ```
 
-## Eval RNN_RNN
-accuracy = 0.7947603395657316+/-0.0003403645399815157
-rouge1 = 0.2952507457561455+/-0.0006882599953940415
-rouge2 = 0.15091452229881022+/-0.000400575299884331
-rougeL = 0.198735038961782+/-0.0005179696499819547
+## Training
+Run `train_RNN_RNN.ipynb` to train the paper model.  
+Run `train_SIMPLE_CNN_RNN.ipynb` to train the model whose first RNN is replaced by a single-layer CNN. 
+Run `train_COMPLEX_CNN_RNN.ipynb` to train the model whose the first RNN is replaced by a complex CNN (3 layers).  
+Run `train_RES_CNN_RNN.ipynb` to train the model whose first RNN is replaced by a CNN that uses residual connections (3 layers).  
+  
+The other notebooks are used to train SIMPLE_CNN_RNN that have been ablated to see the importance of each component of the model:
+ * Run `train_SIMPLE_CNN_RNN_abs_pos_only.ipynb` to train a SIMPLE_CNN_RNN that uses only the absolute position to predict.  
+ * Run `train_SIMPLE_CNN_RNN_rel_pos_only.ipynb` to train a SIMPLE_CNN_RNN that uses only the relative position to predict.
+ * ...  
+  
+To find out what these notebooks are for, just look at the file name.
 
-## Batch size influences on RNN_RNN
-### Batch 8
- * Training time: 28467 s (474.45 min ou 7.9 h)  
- * Test Accuracy: 0.795   
- * Test Rouge 1: 0.293  
- * Test Rouge 2: 0.150 
- * Test Rouge L: 0.198
+## Result
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L | Accuracy |  
+|:-:    |:-:      |:-:      |:-:      |:-:       |  
+|SummaRuNNer(Nallapati)|26.2|10.8|14.4|?|  
+|RNN_RNN|29.5|15.1|19.9|0.795|  
+|SIMPLE_CNN_RNN|29.3|15.0|19.8|0.795|  
+|COMPLEX_CNN_RNN|29.2|15.0|19.7|0.795|  
+|COMPLEX_CNN_RNN (max_pool)|29.2|15.0|19.7|0.795|  
+|RES_CNN_RNN|29.2|15.0|19.7|0.795|  
+|SIMPLE_CNN_RNN without text content (positions only)|28.6|14.6|19.3|0.794|  
+|SIMPLE_CNN_RNN without positions (text content only)|29.2|15.0|19.7|0.795|  
+|SIMPLE_CNN_RNN absolute position only|28.6|14.5|19.2|0.794|  
+|SIMPLE_CNN_RNN relative position only|28.6|14.5|19.3|0.794|  
+|SIMPLE_CNN_RNN without positions and content|29.4|15.1|19.9|0.795|  
+|SIMPLE_CNN_RNN without positions and salience|29.2|15.0|19.7|0.796|  
+|SIMPLE_CNN_RNN without position and novelty|29.2|15.0|19.7|0.796|  
+|SIMPLE_CNN_RNN without position, content and salience (novelty only)|19.4|15.1|19.8|0.796|  
+|SIMPLE_CNN_RNN without position, content and novelty (salience only)|29.1|15.0|19.7|0.795|  
+|SIMPLE_CNN_RNN without position, salience and novelty (content only)|29.3|15.1|19.8|0.796|
 
-### Batch 16
- * Training time: 25016 s (416.93 min ou 6.95 h)  
- * Test Accuracy: 0.795  
- * Test Rouge 1: 0.295  
- * Test Rouge 2: 0.151
- * Test Rouge L: 0.199
+## Influences of batch size
+| batch size | training time (s) | Accuracy | ROUGE-1 | ROUGE-2 | ROUGE-L |  
+|:-:         |:-:                |:-:       |:-:      |:-:      |:-:      |  
+|8|28467|0.795|29.3|15.0|19.8|  
+|16|25016|0.795|29.5|15.1|19.9|  
+|32|21712|0.795|29.6|15.1|19.9|  
+|64|21924|0.794|29.6|15.1|19.9|  
 
-### Batch 32
- * Training time: 21712 s (361.87 min ou 6.03 h)  
- * Test Accuracy: 0.795  
- * Test Rouge 1: 0.296  
- * Test Rouge 2: 0.151  
- * Test Rouge L: 0.199  
-
-### Batch 64
- * Training time: 21924 s (365.4 min ou 6.09 h)  
- * Test Accuracy: 0.794  
- * Test Rouge 1: 0.296  
- * Test Rouge 2: 0.151
- * Test Rouge L: 0.199
-
-## SIMPLE_CNN_RNN measures (avg_pool)
- * Training time: 7642.4968961715695+/-107.46486995069904
- * Test Accuracy: 0.795231152198557+/-0.000465520231821828
- * Test Rouge 1: 0.292573819423903+/-0.0014944682045779755
- * Test Rouge 2: 0.15043881039782786+/-0.0007037429061738172
- * Test Rouge L: 0.1975569524684811+/-0.000962377128746586
-
-## COMPLEX_CNN_RNN measures (avg_pool)
- * Training time: 8996.05546849966+/-91.21740421078874
- * Test Accuracy: 0.7954863916992287+/-0.0004167238388494819
- * Test Rouge 1: 0.29158507244236487+/-0.002274796695256589
- * Test Rouge 2: 0.1499152163447639+/-0.001152272174725075
- * Test Rouge L: 0.19672016382636573+/-0.0014094950752292104
-
-## RES_CNN_RNN measures (avg_pool)
- * Training time: 9011.939860701561+/-183.99514758557163
- * Test Accuracy: 0.7951313140087356+/-0.0006499553865531235
- * Test Rouge 1: 0.2917388840084564+/-0.0029017857882029188
- * Test Rouge 2: 0.14970980870769843+/-0.001832928901577084
- * Test Rouge L: 0.19678195335760365+/-0.0020166919175840328
-
-## COMPLEX_CNN_RNN measures (max_pool)
- * Training time: 8554.601396083832
- * Test Accuracy: 0.795
- * Test Rouge 1: 0.292
- * Test Rouge 2: 0.15
- * Test Rouge L: 0.197
-
-## SIMPLE_CNN_RNN without text content (only position)
- accuracy=0.794, rouge1=0.286, rouge2=0.146, rougeL=0.193
-
-## SIMPLE_CNN_RNN without position (only text content)
-accuracy=0.795, rouge1=0.292, rouge2=0.15, rougeL=0.197
-
-## SIMPLE_CNN_RNN absolute position only
-accuracy=0.794, rouge1=0.286, rouge2=0.145, rougeL=0.192
-
-## SIMPLE_CNN_RNN relative position only
-accuracy=0.794, rouge1=0.286, rouge2=0.145, rougeL=0.193
-
-## SIMPLE_CNN_RNN without position and content
-accuracy=0.795, rouge1=0.294, rouge2=0.151, rougeL=0.199
-
-## SIMPLE_CNN_RNN without position and salience
-accuracy=0.796, rouge1=0.292, rouge2=0.15, rougeL=0.197
-
-## SIMPLE_CNN_RNN without position and novelty
-accuracy=0.796, rouge1=0.292, rouge2=0.15, rougeL=0.197
-
-## SIMPLE_CNN_RNN without position, content and salience (novelty only)
-accuracy=0.796, rouge1=0.294, rouge2=0.151, rougeL=0.198
-
-## SIMPLE_CNN_RNN without position, content and novelty (salience only)
-accuracy=0.795, rouge1=0.291, rouge2=0.15, rougeL=0.197
-
-## SIMPLE_CNN_RNN without position, salience and novelty (content only)
-accuracy=0.796, rouge1=0.293, rouge2=0.151, rougeL=0.198
 
