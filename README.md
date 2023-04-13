@@ -52,6 +52,8 @@ To find out what these notebooks are for, just look at the file name.
 The `pt` files are located in `./checkpoints`, each training result is stored in a different sub directory.  
 
 ## Result
+
+### CNN/DailyMail
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L | Accuracy |  
 |:-:    |:-:      |:-:      |:-:      |:-:       |  
 |SummaRuNNer(Nallapati)|26.2|10.8|14.4|?|  
@@ -71,7 +73,14 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 |SIMPLE_CNN_RNN without position, content and novelty (salience only)|29.1|15.0|19.7|0.795|  
 |SIMPLE_CNN_RNN without position, salience and novelty (content only)|29.3|15.1|19.8|0.796|
 
-## Influences of batch size
+### NYT50
+#### RNN_RNN
+accuracy = 0.7687323796624504+/-0.014930723042429778
+rouge1 = 0.33962717772701917+/-0.008494910491265708
+rouge2 = 0.16428411138339447+/-0.009686278224850171
+rougeL = 0.22178566520400525+/-0.009984206003256462
+
+## Influences of batch size on CNN/DailyMail
 | batch size | training time (s) | Accuracy | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:         |:-:                |:-:       |:-:      |:-:      |:-:      |  
 |8|28467|0.795|29.3|15.0|19.8|  
