@@ -54,6 +54,14 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 ## Result
 
 ### CNN/DailyMail
+New values:
+#### RNN_RNN
+accuracy = 0.7976200912564225+/-0.0004832340762185265  
+rouge1 = 0.33276916772892823+/-0.0015953728047048649  
+rouge2 = 0.1650124669069412+/-0.0005460987962798178  
+rougeL = 0.21914196049006843+/-0.0008741201553995432  
+
+With bugs:
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L | Accuracy |  
 |:-:    |:-:      |:-:      |:-:      |:-:       |  
 |SummaRuNNer(Nallapati)|26.2|10.8|14.4|?|  
