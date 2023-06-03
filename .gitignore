@@ -1,5 +1,5 @@
 data
 tmp.ipynb
-checkpoints
+checkpoints*
 utils/__pycache__
 models/__pycache__

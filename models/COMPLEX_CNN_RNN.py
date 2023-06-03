@@ -62,7 +62,7 @@ class COMPLEX_CNN_RNN(BasicModel):
 
         arr_x = self.word_embedding(arr_x)
         arr_x = self.word_convs(arr_x.permute(0,2,1))
-        arr_x = torch.max_pool1d(arr_x, arr_x.size(2)).squeeze(2)
+        arr_x = torch.avg_pool1d(arr_x, arr_x.size(2)).squeeze(2)
 
         arr_x = self.pad_doc(arr_x, doc_lens)
 
