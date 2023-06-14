@@ -103,11 +103,15 @@ class COMPLEX_CNN_RNN(BasicModel):
 
             ses = ses + torch.mul(sents_all_docs[position::max_doc_lens], prob)
         probs = torch.cat(probs).squeeze()
+        if len(probs.shape) == 0:
+            probs = probs.unsqueeze(0)
         probs_filtered = []
         for idx, doc_len in enumerate(doc_lens):
             prob = probs[idx::len(doc_lens)]
             prob = prob[:doc_len]
             probs_filtered.append(prob)
         probs_filtered = torch.cat(probs_filtered).squeeze()
+        if len(probs_filtered.shape) == 0:
+            probs_filtered = probs_filtered.unsqueeze(0)
         #probs = probs.to(self.device)
         return probs_filtered
