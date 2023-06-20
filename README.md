@@ -53,125 +53,37 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 
 ## Result
 
-### CNN/DailyMail
-New values:
-#### RNN_RNN
-accuracy = 0.7976200912564225+/-0.0004832340762185265  
-rouge1 = 0.33276916772892823+/-0.0015953728047048649  
-rouge2 = 0.1650124669069412+/-0.0005460987962798178  
-rougeL = 0.21914196049006843+/-0.0008741201553995432  
+### DailyMail 275 bytes
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
+|:-:    |:-:      |:-:      |:-:      |  
+|SummaRuNNer(Nallapati)|42.0 &plusmn; 0.2|16.9 &plusmn; 0.4|34.1 &plusmn; 0.3|  
+|RNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|COMPLEX_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|COMPLEX_CNN_RNN (max_pool)|36.7 &plusmn; 5.7|13.7 &plusmn; 4.1|23.1 &plusmn; 3.7|  
+|RES_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without text content (positions only)|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions (text content only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN absolute position only|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN relative position only|40.1 &plusmn; 0.0|16.5 &plusmn; 0.0|25.9 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions and content|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions and salience|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without position and novelty|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without position, content and salience (novelty only)|41.0 &plusmn; 0.0|17.1 &plusmn; 0.0|26.7 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without position, content and novelty (salience only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without position, salience and novelty (content only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|
 
-#### SIMPLE_CNN_RNN
-accuracy = 0.7970514595349885+/-0.0006736440696233371  
-rouge1 = 0.3339824317943772+/-0.0010694029431169377  
-rouge2 = 0.16529564971790509+/-0.0006236033491182214  
-rougeL = 0.21971106489318834+/-0.0006360028902625464  
+### RNN_RNN truncate to reference summary length
+| dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
+|:-:      |:-:      |:-:      |:-:      |  
+| DailyMail | TODO | TODO | TODO |  
+| NYT50 |47.3 &plusmn; 0.0|26.7 &plusmn; 0.0|35.7 &plusmn; 0.0|  
+| Wikipedia-0.5 |31.3 &plusmn; 0.6|10.1 &plusmn; 0.3|19.8 &plusmn; 0.7|  
+| Wikipedia-high-25 |25.1 &plusmn; 0.0|7.1 &plusmn; 0.0|15.5 &plusmn; 0.0|  
+| Wikipedia-low-25 |31.6 &plusmn; 0.0|12.0 &plusmn; 0.0|21.6 &plusmn; 0.0|  
 
-#### COMPLEX_CNN_RNN (avg_pool)
-accuracy = 0.7971761718946562+/-0.0005915452463302269  
-rouge1 = 0.3324963352466784+/-0.0022225250902709456  
-rouge2 = 0.16490786526510912+/-0.0008031419255145703  
-rougeL = 0.21900282267006227+/-0.001227515328570861  
-
-#### COMPLEX_CNN_RNN (max_pool)
-accuracy = 0.7957616492316657+/-0.0014121695141981394  
-rouge1 = 0.33093665491579627+/-0.0019473995929805597  
-rouge2 = 0.1633502583908628+/-0.0012589288836950604  
-rougeL = 0.21742414108726243+/-0.0014528877766677758  
-
-#### RES_CNN_RNN
-accuracy = 0.7976091896259884+/-0.0006301527081488897  
-rouge1 = 0.33340365623882723+/-0.0015766784674160301  
-rouge2 = 0.16518844272974606+/-0.0005769727919436565  
-rougeL = 0.21941753965878888+/-0.0008228038903521313  
-
-#### SIMPLE_CNN_RNN without text content (positions only)
-accuracy = 0.7936516888331236+/-0.00016657131870246583  
-rouge1 = 0.3282220643254479+/-0.00010017259124904148  
-rouge2 = 0.16144588576483934+/-9.790878450587687e-05  
-rougeL = 0.2153257862839468+/-8.34819067998175e-05  
-
-#### SIMPLE_CNN_RNN without positions (text content only)
-accuracy = 0.7977541948931698+/-0.0006095687486696117  
-rouge1 = 0.3315774682947233+/-0.0012601781026641379  
-rouge2 = 0.1648063353346309+/-0.000526567993987483  
-rougeL = 0.21859300243019514+/-0.0006851211779913653  
-
-#### SIMPLE_CNN_RNN absolute position only
-accuracy = 0.7936942398208897+/-0.0001922242674656744  
-rouge1 = 0.32818543727973665+/-0.00015102958031380155  
-rouge2 = 0.1614489626186212+/-7.623394690054021e-05  
-rougeL = 0.21530620481754623+/-9.388258863281334e-05  
-
-#### SIMPLE_CNN_RNN relative position only
-accuracy = 0.7938332199432375+/-1.1102230246251565e-16  
-rouge1 = 0.32828582198549167+/-5.551115123125783e-17  
-rouge2 = 0.16151868127365224+/-2.7755575615628914e-17  
-rougeL = 0.21537195786341387+/-2.7755575615628914e-17  
-
-#### SIMPLE_CNN_RNN without positions and content
-accuracy = 0.7973034456315933+/-0.0006703770523339436  
-rouge1 = 0.3320338876303444+/-0.002268307397291789  
-rouge2 = 0.16462763527381424+/-0.0008534538546282845  
-rougeL = 0.218587449711075+/-0.001148524004515304  
-
-#### SIMPLE_CNN_RNN without positions and salience
-accuracy = 0.7979022671622639+/-0.000730526987041895  
-rouge1 = 0.3347044070153011+/-0.0017751932820483742  
-rouge2 = 0.16582050093225734+/-0.000669184078666254  
-rougeL = 0.22015295215614492+/-0.0009805023996226569  
-
-#### SIMPLE_CNN_RNN without position and novelty
-accuracy = 0.7974882605909813+/-0.0010825789949491643  
-rouge1 = 0.3338080407892599+/-0.0012548744660812426  
-rouge2 = 0.16521958084477775+/-0.0006149559423325359  
-rougeL = 0.21970608581619985+/-0.0007545208653745727  
-
-#### SIMPLE_CNN_RNN without position, content and salience (novelty only)
-accuracy = 0.7976548494963875+/-0.0007091458059375507  
-rouge1 = 0.33316127290059533+/-0.001439231560494716  
-rouge2 = 0.1652642768990638+/-0.0005606375569020793  
-rougeL = 0.2192533126655607+/-0.000791695451409615  
-
-#### SIMPLE_CNN_RNN without position, content and novelty (salience only)
-accuracy = 0.7977617310649349+/-0.0005305480219492531  
-rouge1 = 0.33367793278212127+/-0.0009633039230071641  
-rouge2 = 0.16516954770951944+/-0.000312801785198466  
-rougeL = 0.21938900701030223+/-0.0005858555103936784  
-
-With bugs:
-| model | ROUGE-1 | ROUGE-2 | ROUGE-L | Accuracy |  
-|:-:    |:-:      |:-:      |:-:      |:-:       |  
-|SummaRuNNer(Nallapati)|26.2|10.8|14.4|?|  
-|RNN_RNN|29.5|15.1|19.9|0.795|  
-|SIMPLE_CNN_RNN|29.3|15.0|19.8|0.795|  
-|COMPLEX_CNN_RNN|29.2|15.0|19.7|0.795|  
-|COMPLEX_CNN_RNN (max_pool)|29.2|15.0|19.7|0.795|  
-|RES_CNN_RNN|29.2|15.0|19.7|0.795|  
-|SIMPLE_CNN_RNN without text content (positions only)|28.6|14.6|19.3|0.794|  
-|SIMPLE_CNN_RNN without positions (text content only)|29.2|15.0|19.7|0.795|  
-|SIMPLE_CNN_RNN absolute position only|28.6|14.5|19.2|0.794|  
-|SIMPLE_CNN_RNN relative position only|28.6|14.5|19.3|0.794|  
-|SIMPLE_CNN_RNN without positions and content|29.4|15.1|19.9|0.795|  
-|SIMPLE_CNN_RNN without positions and salience|29.2|15.0|19.7|0.796|  
-|SIMPLE_CNN_RNN without position and novelty|29.2|15.0|19.7|0.796|  
-|SIMPLE_CNN_RNN without position, content and salience (novelty only)|29.4|15.1|19.8|0.796|  
-|SIMPLE_CNN_RNN without position, content and novelty (salience only)|29.1|15.0|19.7|0.795|  
-|SIMPLE_CNN_RNN without position, salience and novelty (content only)|29.3|15.1|19.8|0.796|
-
-### NYT50
-#### RNN_RNN
-accuracy = 0.7687323796624504+/-0.014930723042429778  
-rouge1 = 0.33962717772701917+/-0.008494910491265708  
-rouge2 = 0.16428411138339447+/-0.009686278224850171  
-rougeL = 0.22178566520400525+/-0.009984206003256462  
-
-## Influences of batch size on CNN/DailyMail
-| batch size | training time (s) | Accuracy | ROUGE-1 | ROUGE-2 | ROUGE-L |  
-|:-:         |:-:                |:-:       |:-:      |:-:      |:-:      |  
-|8|28467|0.795|29.3|15.0|19.8|  
-|16|25016|0.795|29.5|15.1|19.9|  
-|32|21712|0.795|29.6|15.1|19.9|  
-|64|21924|0.794|29.6|15.1|19.9|  
+&ast; Wikipedia-0.5: general geography, architecture town planning and geology wikipedia articles with len(summary)/len(content) <= 0.5.  
+&ast; Wikipedia-high-25: 25% general geography, architecture town planning and geology wikipedia articles sorted by len(summary)/len(content) descending.  
+&ast; Wikipedia-low-25: general geography, architecture town planning and geology wikipedia articles sorted by len(summary)/len(content) ascending.  
 
 
