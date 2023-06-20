@@ -26,12 +26,12 @@ Download the [initial dataset](https://drive.google.com/file/d/1JgsboIAs__r6XfCb
 Copy train.json, val.json and test.json to `./data/ref` .  
 Run the python script: `convert_ref_data_to_raw_data.py`:
 ```bash
-python3 ./convert_ref_data_to_raw_data.py
+python3 ./00-0-convert_ref_data_to_raw_data.py
 ```
 
 ## Compute own labels
 ```bash
-python3 ./compute_own_labels_from_raw_data.py
+python3 ./00-1-compute_own_labels_from_raw_data.py
 ```
 
 ## Embeddings
