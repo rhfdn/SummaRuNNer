@@ -7,4 +7,4 @@ def compute_the_average_proportion_of_sentences_per_document(df):
         sum_proportion += sum(df["own_labels"][idx]) / len(df["own_labels"][idx])
     return sum_proportion / len(df.index)
 
-print(compute_the_average_proportion_of_sentences_per_document(pd.read_json("./data/train.json")))
+print(compute_the_average_proportion_of_sentences_per_document(pd.read_json("./data/cnn_dailymail/train.json")))
