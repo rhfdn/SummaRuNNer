@@ -76,7 +76,7 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 ### RNN_RNN truncate to reference summary length
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
-| DailyMail | TODO | TODO | TODO |  
+| DailyMail | 40.7 &plusmn; 0.0 | 16.6 &plusmn; 0.0 | 25.7 &plusmn; 0.0 |  
 | NYT50 |47.3 &plusmn; 0.0|26.7 &plusmn; 0.0|35.7 &plusmn; 0.0|  
 | Wikipedia-0.5 |31.3 &plusmn; 0.6|10.1 &plusmn; 0.3|19.8 &plusmn; 0.7|  
 | Wikipedia-high-25 |25.1 &plusmn; 0.0|7.1 &plusmn; 0.0|15.5 &plusmn; 0.0|  
