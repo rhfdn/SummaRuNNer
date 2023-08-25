@@ -91,7 +91,7 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 
 *: maybe the ROUGE-L have changed in the rouge library I use.
 
-## RNN_RNN on general geography, architecture town planning and geology french wikipedia articles (limited-length ROUGE Recall)
+### RNN_RNN on general geography, architecture town planning and geology french wikipedia articles (limited-length ROUGE Recall)
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
 | Wikipedia-0.5 |31.4 &plusmn; 0.0|10.1 &plusmn; 0.0|20.0 &plusmn; 0.0|  
