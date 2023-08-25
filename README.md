@@ -106,4 +106,4 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 &ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology french wikipedia articles sorted by len(summary)/len(content) descending.  
 &ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology french wikipedia articles sorted by len(summary)/len(content) ascending.  
 
-See [CGN_ExSUM_NER repository](https://github.com/Baragouine/CGN_ExSUM_NER) for wikipedia scraping and preprocessing (that repository conatain script for scrapping and preprocessing).
+See [HSG_ExSUM_NER repository](https://github.com/Baragouine/HSG_ExSUM_NER) for wikipedia scraping and preprocessing (that repository conatain script for scrapping and preprocessing).
