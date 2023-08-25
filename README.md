@@ -87,7 +87,7 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:    |:-:      |:-:      |:-:      |  
 | HeterSUMGraph (Wang) | 46.89 | 26.26 | 42.58 |  
-| RNN_RNN | **47.3 &plusmn; 0.0** | ** 26.7 &plusmn; 0.0 ** | ** 35.7 &plusmn;* 0.0 ** |
+| RNN_RNN | **47.3 &plusmn; 0.0** | **26.7 &plusmn; 0.0** | **35.7\* &plusmn; 0.0** |
 *: maybe the ROUGE-L have changed in the rouge library I use.
 
 truncate to reference summary length
