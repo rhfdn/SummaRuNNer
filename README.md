@@ -38,7 +38,9 @@ To install nltk data:
 ## Convert initial dataset to valid pandas json
 Download the [initial dataset](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail) (CNN-DailyMail from Kaggle).  
 Copy train.json, val.json and test.json to `./data/cnn_dailymail/raw/` .  
-Run the notebook: `00-0-convert_raw_cnndailymail_to_json.ipynb`:
+Run the notebook: `00-0-convert_raw_cnndailymail_to_json.ipynb`.  
+
+To know how to download and preprocess NYT (convert NYT to NYT50 and preprocess it), see: [https://github.com/Baragouine/HeterSUMGraph](https://github.com/Baragouine/HeterSUMGraph).
 
 ## Compute labels
 ```bash
