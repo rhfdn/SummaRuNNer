@@ -6,6 +6,11 @@ paper: [SummaRuNNer](https://arxiv.org/pdf/1611.04230.pdf)
 git clone https://github.com/Baragouine/SummaRuNNer.git
 ```
 
+## Enter into the directory
+```bash
+cd SummaRuNNer
+```
+
 ## Create environnement
 ```bash
 conda create --name SummaRuNNer python=3.9
@@ -21,18 +26,23 @@ conda activate SummaRuNNer
 pip install -r requirements.txt
 ```
 
-## Convert initial dataset to valid pandas json
-Download the [initial dataset](https://drive.google.com/file/d/1JgsboIAs__r6XfCbkDWgmberXJw8FBWE/view?usp=sharing) (DailyMail).  
-Copy train.json, val.json and test.json to `./data/ref` .  
-Run the python script: `convert_ref_data_to_raw_data.py`:
-```bash
-python3 ./00-0-convert_ref_data_to_raw_data.py
-```
+## Install nltk data
+To install nltk data:
+  - Open a python console.
+  - Type ``` import nltk; nltk.download()```.
+  - Download all data.
+  - Close the python console.
 
-## Compute own labels
+## Convert initial dataset to valid pandas json
+Download the [initial dataset]([https://drive.google.com/file/d/1JgsboIAs__r6XfCbkDWgmberXJw8FBWE/view?usp=sharing](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail)) (CNN-DailyMail from Kaggle).  
+Copy train.json, val.json and test.json to `./data/cnn_dailymail/raw/` .  
+Run the notebook: `00-0-convert_raw_cnndailymail_to_json.ipynb`:
+
+## Compute labels
 ```bash
-python3 ./00-1-compute_own_labels_from_raw_data.py
+python3 ./00-1-compute_label_cnndailymail.py
 ```
+You can adapt this script for other dataset containing texts and summaries.
 
 ## Embeddings
 For training you must use glove 100 embeddings, they must have the following path: `data/glove.6B/glove.6B.100d.txt`
