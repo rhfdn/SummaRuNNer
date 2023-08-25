@@ -91,17 +91,15 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 
 *: maybe the ROUGE-L have changed in the rouge library I use.
 
-truncate to reference summary length
+## RNN_RNN on general geography, architecture town planning and geology french wikipedia articles (limited-length ROUGE Recall)
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
-| DailyMail | 40.7 &plusmn; 0.0 | 16.6 &plusmn; 0.0 | 25.7 &plusmn; 0.0 |  
-| NYT50 |47.3 &plusmn; 0.0|26.7 &plusmn; 0.0|35.7 &plusmn; 0.0|  
-| Wikipedia-0.5 |31.3 &plusmn; 0.6|10.1 &plusmn; 0.3|19.8 &plusmn; 0.7|  
-| Wikipedia-high-25 |25.1 &plusmn; 0.0|7.1 &plusmn; 0.0|15.5 &plusmn; 0.0|  
-| Wikipedia-low-25 |31.6 &plusmn; 0.0|12.0 &plusmn; 0.0|21.6 &plusmn; 0.0|  
+| Wikipedia-0.5 |31.4 &plusmn; 0.0|10.1 &plusmn; 0.0|20.0 &plusmn; 0.0|  
+| Wikipedia-high-25 |24.4 &plusmn; 0.0|6.7 &plusmn; 0.0|15.0 &plusmn; 0.0|  
+| Wikipedia-low-25 |32.3 &plusmn; 0.0|12.4 &plusmn; 0.0|21.9 &plusmn; 0.0|  
 
-&ast; Wikipedia-0.5: general geography, architecture town planning and geology wikipedia articles with len(summary)/len(content) <= 0.5.  
-&ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology wikipedia articles sorted by len(summary)/len(content) descending.  
-&ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology wikipedia articles sorted by len(summary)/len(content) ascending.  
+&ast; Wikipedia-0.5: general geography, architecture town planning and geology french wikipedia articles with len(summary)/len(content) <= 0.5.  
+&ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology french wikipedia articles sorted by len(summary)/len(content) descending.  
+&ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology french wikipedia articles sorted by len(summary)/len(content) ascending.  
 
-TODO: see link for wikipedia scraping and preprocessing data.
+See [CGN_ExSUM_NER repository](https://github.com/Baragouine/CGN_ExSUM_NER) for wikipedia scraping and preprocessing (that repository conatain script for scrapping and preprocessing).
