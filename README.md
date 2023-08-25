@@ -95,15 +95,15 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 
 *: maybe the ROUGE-L have changed in the rouge library I use.
 
-### RNN_RNN on general geography, architecture town planning and geology french wikipedia articles (limited-length ROUGE Recall)
+### RNN_RNN on general geography, architecture town planning and geology French wikipedia articles (limited-length ROUGE Recall)
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
 | Wikipedia-0.5 |31.4 &plusmn; 0.0|10.1 &plusmn; 0.0|20.0 &plusmn; 0.0|  
 | Wikipedia-high-25 |24.4 &plusmn; 0.0|6.7 &plusmn; 0.0|15.0 &plusmn; 0.0|  
 | Wikipedia-low-25 |32.3 &plusmn; 0.0|12.4 &plusmn; 0.0|21.9 &plusmn; 0.0|  
 
-&ast; Wikipedia-0.5: general geography, architecture town planning and geology french wikipedia articles with len(summary)/len(content) <= 0.5.  
-&ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology french wikipedia articles sorted by len(summary)/len(content) descending.  
-&ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology french wikipedia articles sorted by len(summary)/len(content) ascending.  
+&ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
+&ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) descending.  
+&ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) ascending.  
 
 See [HSG_ExSUM_NER repository](https://github.com/Baragouine/HSG_ExSUM_NER) for wikipedia scraping and preprocessing (that repository conatain script for scrapping and preprocessing).
