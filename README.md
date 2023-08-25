@@ -63,27 +63,34 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 
 ## Result
 
-### DailyMail 275 bytes
+### CNN-DailyMail (full-length f1 rouge)
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:    |:-:      |:-:      |:-:      |  
-|SummaRuNNer(Nallapati)|42.0 &plusmn; 0.2|16.9 &plusmn; 0.4|34.1 &plusmn; 0.3|  
-|RNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|COMPLEX_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|COMPLEX_CNN_RNN (max_pool)|36.7 &plusmn; 5.7|13.7 &plusmn; 4.1|23.1 &plusmn; 3.7|  
-|RES_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without text content (positions only)|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions (text content only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN absolute position only|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN relative position only|40.1 &plusmn; 0.0|16.5 &plusmn; 0.0|25.9 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions and content|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions and salience|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position and novelty|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position, content and salience (novelty only)|41.0 &plusmn; 0.0|17.1 &plusmn; 0.0|26.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position, content and novelty (salience only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position, salience and novelty (content only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|
+|SummaRuNNer(Nallapati)|39.6 &plusmn; 0.2|16.2 &plusmn; 0.2|35.3 &plusmn; 0.2|  
+|RNN_RNN|39.7 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|COMPLEX_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|COMPLEX_CNN_RNN (max_pool)|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|RES_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without text content (positions only)|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.2 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions (text content only)|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN absolute position only|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.3 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN relative position only|39.0 &plusmn; 0.0|15.8 &plusmn; 0.0|24.1 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions and content|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions and salience|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without position and novelty|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without novelty only|**40.0 &plusmn; 0.0**|**16.7 &plusmn; 0.0**|**25.3 &plusmn; 0.0**|  
+|SIMPLE_CNN_RNN without salience only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without content only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|
 
-### RNN_RNN truncate to reference summary length
+### RNN_RNN on NYT50 (limited-length ROUGE Recall)
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
+|:-:    |:-:      |:-:      |:-:      |  
+| HeterSUMGraph (Wang) | 46.89 | 26.26 | 42.58 |  
+| RNN_RNN | **47.3 &plusmn; 0.0** | ** 26.7 &plusmn; 0.0 ** | ** 35.7 &plusmn;* 0.0 ** |
+*: maybe the ROUGE-L have changed in the rouge library I use.
+
+truncate to reference summary length
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
 | DailyMail | 40.7 &plusmn; 0.0 | 16.6 &plusmn; 0.0 | 25.7 &plusmn; 0.0 |  
