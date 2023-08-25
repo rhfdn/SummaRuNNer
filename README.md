@@ -36,7 +36,7 @@ To install nltk data:
   - Close the python console.
 
 ## Convert initial dataset to valid pandas json
-Download the [initial dataset]([https://drive.google.com/file/d/1JgsboIAs__r6XfCbkDWgmberXJw8FBWE/view?usp=sharing](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail)) (CNN-DailyMail from Kaggle).  
+Download the [initial dataset](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail) (CNN-DailyMail from Kaggle).  
 Copy train.json, val.json and test.json to `./data/cnn_dailymail/raw/` .  
 Run the notebook: `00-0-convert_raw_cnndailymail_to_json.ipynb`:
 
