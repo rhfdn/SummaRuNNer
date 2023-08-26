@@ -1,9 +1,16 @@
-# SummaRuNNer
+# SummaRuNNer (extractive summarization)
+This repository presents an in-depth study of SummaRuNNer (ablation and replacement study) and also presents SummaRuNNer's results on NYT50 and part of the French wikipedia, as well as the influence of the length of the summary in relation to the document on performance.  
+
 paper: [SummaRuNNer](https://arxiv.org/pdf/1611.04230.pdf)
 
 ## Clone project
 ```bash
 git clone https://github.com/Baragouine/SummaRuNNer.git
+```
+
+## Enter into the directory
+```bash
+cd SummaRuNNer
 ```
 
 ## Create environnement
@@ -21,18 +28,25 @@ conda activate SummaRuNNer
 pip install -r requirements.txt
 ```
 
-## Convert initial dataset to valid pandas json
-Download the [initial dataset](https://drive.google.com/file/d/1JgsboIAs__r6XfCbkDWgmberXJw8FBWE/view?usp=sharing) (DailyMail).  
-Copy train.json, val.json and test.json to `./data/ref` .  
-Run the python script: `convert_ref_data_to_raw_data.py`:
-```bash
-python3 ./00-0-convert_ref_data_to_raw_data.py
-```
+## Install nltk data
+To install nltk data:
+  - Open a python console.
+  - Type ``` import nltk; nltk.download()```.
+  - Download all data.
+  - Close the python console.
 
-## Compute own labels
+## Convert initial dataset to valid pandas json
+Download the [initial dataset](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail) (CNN-DailyMail from Kaggle).  
+Copy train.json, val.json and test.json to `./data/cnn_dailymail/raw/` .  
+Run the notebook: `00-0-convert_raw_cnndailymail_to_json.ipynb`.  
+
+To know how to download and preprocess NYT (convert NYT to NYT50 and preprocess it), see: [https://github.com/Baragouine/HeterSUMGraph](https://github.com/Baragouine/HeterSUMGraph).
+
+## Compute labels
 ```bash
-python3 ./00-1-compute_own_labels_from_raw_data.py
+python3 ./00-1-compute_label_cnndailymail.py
 ```
+You can adapt this script for other dataset containing texts and summaries.
 
 ## Embeddings
 For training you must use glove 100 embeddings, they must have the following path: `data/glove.6B/glove.6B.100d.txt`
@@ -53,37 +67,43 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 
 ## Result
 
-### DailyMail 275 bytes
+### CNN-DailyMail (full-length f1 rouge)
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:    |:-:      |:-:      |:-:      |  
-|SummaRuNNer(Nallapati)|42.0 &plusmn; 0.2|16.9 &plusmn; 0.4|34.1 &plusmn; 0.3|  
-|RNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|COMPLEX_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|COMPLEX_CNN_RNN (max_pool)|36.7 &plusmn; 5.7|13.7 &plusmn; 4.1|23.1 &plusmn; 3.7|  
-|RES_CNN_RNN|40.7 &plusmn; 0.0|16.6 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without text content (positions only)|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions (text content only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN absolute position only|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN relative position only|40.1 &plusmn; 0.0|16.5 &plusmn; 0.0|25.9 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions and content|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions and salience|40.6 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position and novelty|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position, content and salience (novelty only)|41.0 &plusmn; 0.0|17.1 &plusmn; 0.0|26.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position, content and novelty (salience only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.7 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position, salience and novelty (content only)|40.7 &plusmn; 0.0|16.5 &plusmn; 0.0|25.6 &plusmn; 0.0|
+|SummaRuNNer(Nallapati)|39.6 &plusmn; 0.2|16.2 &plusmn; 0.2|35.3 &plusmn; 0.2|  
+|RNN_RNN|39.7 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|COMPLEX_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|COMPLEX_CNN_RNN (max_pool)|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|RES_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without text content (positions only)|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.2 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions (text content only)|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN absolute position only|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.3 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN relative position only|39.0 &plusmn; 0.0|15.8 &plusmn; 0.0|24.1 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions and content|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without positions and salience|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without position and novelty|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without novelty only|**40.0 &plusmn; 0.0**|**16.7 &plusmn; 0.0**|**25.3 &plusmn; 0.0**|  
+|SIMPLE_CNN_RNN without salience only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN without content only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|
 
-### RNN_RNN truncate to reference summary length
+### RNN_RNN on NYT50 (limited-length ROUGE Recall)
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
+|:-:    |:-:      |:-:      |:-:      |  
+| HeterSUMGraph (Wang) | 46.89 | 26.26 | 42.58 |  
+| RNN_RNN | **47.3 &plusmn; 0.0** | **26.7 &plusmn; 0.0** | **35.7\* &plusmn; 0.0** |  
+
+*: maybe the ROUGE-L have changed in the rouge library I use.
+
+### RNN_RNN on general geography, architecture town planning and geology French wikipedia articles (limited-length ROUGE Recall)
 | dataset | ROUGE-1 | ROUGE-2 | ROUGE-L |  
 |:-:      |:-:      |:-:      |:-:      |  
-| DailyMail | 40.7 &plusmn; 0.0 | 16.6 &plusmn; 0.0 | 25.7 &plusmn; 0.0 |  
-| NYT50 |47.3 &plusmn; 0.0|26.7 &plusmn; 0.0|35.7 &plusmn; 0.0|  
-| Wikipedia-0.5 |31.3 &plusmn; 0.6|10.1 &plusmn; 0.3|19.8 &plusmn; 0.7|  
-| Wikipedia-high-25 |25.1 &plusmn; 0.0|7.1 &plusmn; 0.0|15.5 &plusmn; 0.0|  
-| Wikipedia-low-25 |31.6 &plusmn; 0.0|12.0 &plusmn; 0.0|21.6 &plusmn; 0.0|  
+| Wikipedia-0.5 |31.4 &plusmn; 0.0|10.1 &plusmn; 0.0|20.0 &plusmn; 0.0|  
+| Wikipedia-high-25 |24.4 &plusmn; 0.0|6.7 &plusmn; 0.0|15.0 &plusmn; 0.0|  
+| Wikipedia-low-25 |32.3 &plusmn; 0.0|12.4 &plusmn; 0.0|21.9 &plusmn; 0.0|  
 
-&ast; Wikipedia-0.5: general geography, architecture town planning and geology wikipedia articles with len(summary)/len(content) <= 0.5.  
-&ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology wikipedia articles sorted by len(summary)/len(content) descending.  
-&ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology wikipedia articles sorted by len(summary)/len(content) ascending.  
+&ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
+&ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) descending.  
+&ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) ascending.  
 
-TODO: see link for wikipedia scraping and preprocessing data.
+See [HSG_ExSUM_NER repository](https://github.com/Baragouine/HSG_ExSUM_NER) for wikipedia scraping and preprocessing (that repository conatain script for scrapping and preprocessing).
