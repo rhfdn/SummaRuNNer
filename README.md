@@ -83,9 +83,9 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 |SIMPLE_CNN_RNN without positions and content|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
 |SIMPLE_CNN_RNN without positions and salience|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
 |SIMPLE_CNN_RNN without position and novelty|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without novelty only|**40.0 &plusmn; 0.0**|**16.7 &plusmn; 0.0**|**25.3 &plusmn; 0.0**|  
-|SIMPLE_CNN_RNN without salience only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without content only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|
+|SIMPLE_CNN_RNN novelty only|**40.0 &plusmn; 0.0**|**16.7 &plusmn; 0.0**|**25.3 &plusmn; 0.0**|  
+|SIMPLE_CNN_RNN salience only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN content only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|
 
 ### RNN_RNN on NYT50 (limited-length ROUGE Recall)
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
