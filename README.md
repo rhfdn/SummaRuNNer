@@ -1,5 +1,5 @@
 # SummaRuNNer (extractive summarization)
-This repository presents an in-depth study of SummaRuNNer (ablation and replacement study) and also presents SummaRuNNer's results on CNN-DailyMail, NYT50 and part of the French wikipedia, as well as the influence of the length of the summary in relation to the document on performance.  
+This repository presents an in-depth study of SummaRuNNer (ablation and replacement study) and also presents SummaRuNNer's results on CNN-DailyMail, NYT50 and part of the French wikipedia, as well as the influence of the length of the summary/document ratio on performance. 
 
 paper: [SummaRuNNer](https://arxiv.org/pdf/1611.04230.pdf)
 
