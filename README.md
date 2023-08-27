@@ -55,6 +55,7 @@ For training you must use glove 100 embeddings, they must have the following pat
 Run `train_RNN_RNN.ipynb` to train the paper model.  
 Run `train_SIMPLE_CNN_RNN.ipynb` to train the model whose first RNN is replaced by a single-layer CNN.  
 Run `train_COMPLEX_CNN_RNN.ipynb` to train the model whose the first RNN is replaced by a complex CNN (3 layers).  
+Run `train_COMPLEX_CNN_RNN_max_pool.ipynb` to train the model whose the first RNN is replaced by a complex CNN (3 layers). And the model uses max pooling instead of average pooling.  
 Run `train_RES_CNN_RNN.ipynb` to train the model whose first RNN is replaced by a CNN that uses residual connections (3 layers).  
   
 The other notebooks are used to train SIMPLE_CNN_RNN that have been ablated to see the importance of each component of the model:
@@ -74,18 +75,18 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 |RNN_RNN|39.7 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
 |SIMPLE_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
 |COMPLEX_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|COMPLEX_CNN_RNN (max_pool)|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|COMPLEX_CNN_RNN_max_pool|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
 |RES_CNN_RNN|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without text content (positions only)|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.2 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions (text content only)|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN absolute position only|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.3 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN relative position only|39.0 &plusmn; 0.0|15.8 &plusmn; 0.0|24.1 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions and content|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without positions and salience|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN without position and novelty|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN novelty only|**40.0 &plusmn; 0.0**|**16.7 &plusmn; 0.0**|**25.3 &plusmn; 0.0**|  
-|SIMPLE_CNN_RNN salience only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
-|SIMPLE_CNN_RNN content only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|
+|SIMPLE_CNN_RNN_without_text_content (positions only)|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.2 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_without_positions (text content only)|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_absolute_position_only|39.4 &plusmn; 0.0|16.0 &plusmn; 0.0|24.3 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_relative_position_only|39.0 &plusmn; 0.0|15.8 &plusmn; 0.0|24.1 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_without_positions_and_content|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_without_positions_and_salience|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_without_position_and_novelty|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_novelty_only|**40.0 &plusmn; 0.0**|**16.7 &plusmn; 0.0**|**25.3 &plusmn; 0.0**|  
+|SIMPLE_CNN_RNN_salience_only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|  
+|SIMPLE_CNN_RNN_content_only|39.6 &plusmn; 0.0|16.2 &plusmn; 0.0|24.4 &plusmn; 0.0|
 
 ### RNN_RNN on NYT50 (limited-length ROUGE Recall)
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L |  
