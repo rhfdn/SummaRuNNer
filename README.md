@@ -103,6 +103,13 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 | Wikipedia-high-25 |24.0 &plusmn; 0.0|6.8 &plusmn; 0.0|15.0 &plusmn; 0.0|  
 | Wikipedia-low-25 |33.3 &plusmn; 0.0|13.3 &plusmn; 0.0|23.0 &plusmn; 0.0|  
 
+### RNN_RNN with NER on general geography, architecture town planning and geology French wikipedia articles (limited-length ROUGE Recall)
+| model | ROUGE-1 | ROUGE-2 | ROUGE-L | ACCURACY |
+|:-:      |:-:      |:-:      |:-:      |:-:       |
+|RNN_RNN_summary_and_ner|31.6 &plusmn; 0.1|10.0 &plusmn; 0.0|20.0|0.875 &plusmn; 0.0|  
+|RNN_RNN_OnlyNER|N/A|N/A|N/A|0.879 &plusmn; 0.0|  
+
+
 &ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
 &ast; Wikipedia-high-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) descending.  
 &ast; Wikipedia-low-25: first 25% of general geography, architecture town planning and geology French wikipedia articles sorted by len(summary)/len(content) ascending.  
