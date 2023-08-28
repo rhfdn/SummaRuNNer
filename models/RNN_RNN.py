@@ -2,7 +2,6 @@ from .BasicModel import BasicModel
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.autograd import Variable
 
 class RNN_RNN(BasicModel):
     def __init__(self, device, vocab_size, word_embed = None, dim_word_embed = 100):
