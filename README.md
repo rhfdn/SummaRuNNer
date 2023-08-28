@@ -107,7 +107,7 @@ The `pt` files are located in `./checkpoints`, each training result is stored in
 | model | ROUGE-1 | ROUGE-2 | ROUGE-L | ACCURACY |
 |:-:      |:-:      |:-:      |:-:      |:-:       |
 |RNN_RNN_summary_and_ner|31.6 &plusmn; 0.1|10.0 &plusmn; 0.0|20.0|0.875 &plusmn; 0.0|  
-|RNN_RNN_OnlyNER|N/A|N/A|N/A|0.879 &plusmn; 0.0|  
+|RNN_RNN_OnlyNER|N/A|N/A|N/A|**0.879 &plusmn; 0.0**|  
 
 
 &ast; Wikipedia-0.5: general geography, architecture town planning and geology French wikipedia articles with len(summary)/len(content) <= 0.5.  
